@@ -21,12 +21,15 @@ jobs:
         uses: actions/checkout@v4
         with:
           repository: y16ra/github-actions-samples
-          path: samples
+          sparse-checkout: |
+            api/sample-api.yaml
+          sparse-checkout-cone-mode: false
+          path: api
       - run: |
           pwd
           ls -al
       - name: Check github-actions-samples repo
-        working-directory: samples
+        working-directory: api
         run: |
           pwd
           ls -al
