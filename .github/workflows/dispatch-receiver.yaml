@@ -24,7 +24,6 @@ jobs:
           sparse-checkout: |
             api/sample-api.yaml
           sparse-checkout-cone-mode: false
-          path: api
       - run: |
           pwd
           ls -al
