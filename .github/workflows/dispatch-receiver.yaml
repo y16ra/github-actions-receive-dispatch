@@ -12,3 +12,21 @@ jobs:
         run: |
           echo "event name: ${{ github.event_name }}"
           echo "release version: ${{ github.event.client_payload.version }}"
+      - name: Checkout
+        uses: actions/checkout@v4
+      - run: |
+          pwd
+          ls -al
+      - name: Checkout github-actions-samples
+        uses: actions/checkout@v4
+        with:
+          repository: github-actions-samples
+          path: samples
+      - run: |
+          pwd
+          ls -al
+      - name: Check github-actions-samples repo
+        working-directory: samples
+        run: |
+          pwd
+          ls -al
