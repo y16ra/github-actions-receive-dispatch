@@ -32,3 +32,4 @@ jobs:
         run: |
           pwd
           ls -al
+          cat sample-api.yaml
