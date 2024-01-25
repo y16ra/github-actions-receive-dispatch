@@ -2,7 +2,7 @@ name: dispatch receiver
 
 on:
   repository_dispatch:
-    types: [point_core_release]
+    types: [sample_publish]
 
 jobs:
   receive:
