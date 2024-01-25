@@ -14,6 +14,8 @@ jobs:
           echo "release version: ${{ github.event.client_payload.version }}"
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          path: github-actions-receive-dispatch
       - run: |
           pwd
           ls -al
@@ -24,12 +26,14 @@ jobs:
           sparse-checkout: |
             api/sample-api.yaml
           sparse-checkout-cone-mode: false
+          path: github-actions-samples
       - run: |
           pwd
           ls -al
       - name: Check github-actions-samples repo
-        working-directory: api
+        working-directory: github-actions-samples
         run: |
           pwd
           ls -al
+          cd api
           cat sample-api.yaml
