@@ -30,7 +30,7 @@ jobs:
       - run: |
           pwd
           ls -al
-      - name: Check github-actions-samples repo
+      - name: Check sample-api.yaml
         working-directory: github-actions-samples
         run: |
           pwd
@@ -46,10 +46,9 @@ jobs:
           echo "github-actions-samples/api/sample-api.yaml"
           cat github-actions-samples/api/sample-api.yaml
       - name: Copy api spec file to github-actions-receive-dispatch
-        working-directory: github-actions-receive-dispatch
         run: |
           pwd
           ls -al
-          mkdir api
-          cp github-actions-samples/api/sample-api.yaml ./api/sample-api.yaml
-          cat api/sample-api.yaml
+          mkdir -p github-actions-receive-dispatch/api
+          cp github-actions-samples/api/sample-api.yaml github-actions-receive-dispatch/api/sample-api.yaml
+          cat github-actions-receive-dispatch/api/sample-api.yaml
