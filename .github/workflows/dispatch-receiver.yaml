@@ -1,0 +1,13 @@
+name: dispatch receiver
+
+on:
+  repository_dispatch:
+
+jobs:
+  receive:
+    runs-on: ubuntu-latest
+    steps:
+      - name: receive event info
+        run: |
+          echo "event name: ${{ github.event_name }}"
+          echo "event payload: ${{ github.event.client_payload }}"
