@@ -20,7 +20,7 @@ jobs:
       - name: Checkout github-actions-samples
         uses: actions/checkout@v4
         with:
-          repository: github-actions-samples
+          repository: y16ra/github-actions-samples
           path: samples
       - run: |
           pwd
