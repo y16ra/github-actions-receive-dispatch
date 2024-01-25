@@ -37,3 +37,19 @@ jobs:
           ls -al
           cd api
           cat sample-api.yaml
+      - name: update api version
+        uses: mikefarah/yq@master
+        with:
+          cmd: TAG=${{ github.event.client_payload.version }} yq eval -i '.info.version = env(TAG)' github-actions-samples/api/sample-api.yaml
+      - run: |
+          pwd
+          echo "github-actions-samples/api/sample-api.yaml"
+          cat github-actions-samples/api/sample-api.yaml
+      - name: Copy api spec file to github-actions-receive-dispatch
+        working-directory: github-actions-receive-dispatch
+        run: |
+          pwd
+          ls -al
+          mkdir api
+          cp github-actions-samples/api/sample-api.yaml ./api/sample-api.yaml
+          cat api/sample-api.yaml
