@@ -2,6 +2,7 @@ name: dispatch receiver
 
 on:
   repository_dispatch:
+    types: [point_core_release]
 
 jobs:
   receive:
@@ -10,4 +11,4 @@ jobs:
       - name: receive event info
         run: |
           echo "event name: ${{ github.event_name }}"
-          echo "event payload: ${{ github.event.client_payload }}"
+          echo "release version: ${{ github.event.client_payload.version }}"
