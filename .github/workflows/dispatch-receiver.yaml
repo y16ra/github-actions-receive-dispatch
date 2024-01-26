@@ -39,6 +39,8 @@ jobs:
         working-directory: github-actions-samples
         run: |
           pwd
+          git branch --contains
+          git log |grep '^commit' |head -1|awk '{print $2}'
           cd api
           cat sample-api.yaml
       - name: update api version
